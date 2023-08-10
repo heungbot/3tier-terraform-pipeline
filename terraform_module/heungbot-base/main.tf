@@ -119,7 +119,7 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route" "private" {
-  count = length(aws_nat_gateway.aws-nat-gw.*.id)
+  count                  = length(aws_nat_gateway.aws-nat-gw.*.id)
   route_table_id         = aws_route_table.private.id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = element(aws_nat_gateway.aws-nat-gw.*.id, count.index)
@@ -226,6 +226,30 @@ resource "null_resource" "INTERNET-FACING-ALB-DOMAIN-TO-FRONTEND-DIRECTORY" {
 
 ######################### SECURITY GRUOP #########################
 
+resource "aws_security_group" "bastion-sg" {
+  name   = "main-bastion-sg"
+  vpc_id = aws_vpc.main.id
+
+  ingress {
+    from_port   = 22
+    protocol    = "tcp"
+    to_port     = 22
+    cidr_blocks = var.ADMIN_CIDR
+  }
+
+  egress {
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name        = "${var.APP_NAME}-bastion-sg"
+    Environment = var.APP_ENV
+  }
+}
+
 data "aws_ec2_managed_prefix_list" "cloudfront-prefix-list" {
   name = "com.amazonaws.global.cloudfront.origin-facing"
 }
@@ -296,10 +320,13 @@ resource "aws_security_group" "cache-security-group" {
   name   = "main-cache-sg"
 
   ingress {
-    from_port       = var.CACHE_PORT
-    to_port         = var.CACHE_PORT
-    protocol        = "tcp"
-    security_groups = [aws_security_group.backend-service-security-group.id]
+    from_port = var.CACHE_PORT
+    to_port   = var.CACHE_PORT
+    protocol  = "tcp"
+    security_groups = [
+      aws_security_group.bastion-sg.id,
+      aws_security_group.backend-service-security-group.id
+    ]
   }
 
   egress {
@@ -320,13 +347,17 @@ resource "aws_security_group" "cache-security-group" {
 # RDS SG(mysql)
 resource "aws_security_group" "rds-security-group" {
   vpc_id = aws_vpc.main.id
-  name = "main-mysql-sg"
+  name   = "main-mysql-sg"
 
   ingress {
-    from_port       = var.DB_PORT
-    to_port         = var.DB_PORT
-    protocol        = "tcp"
-    security_groups = [aws_security_group.backend-service-security-group.id, aws_security_group.cache-security-group.id]
+    from_port = var.DB_PORT
+    to_port   = var.DB_PORT
+    protocol  = "tcp"
+    security_groups = [
+      aws_security_group.bastion-sg.id,
+      aws_security_group.backend-service-security-group.id,
+      aws_security_group.cache-security-group.id
+    ]
   }
 
   egress {
@@ -343,52 +374,32 @@ resource "aws_security_group" "rds-security-group" {
   }
 }
 
+# bastion host instance
 
-# ######################### INTERNAL ALB FOR BACKEND SIDE #########################
+resource "aws_key_pair" "tf-main" {
+  # 등록할 key pair의 name
+  key_name = "tf_main_key"
 
-# resource "aws_alb" "backend-alb" {
-#   name               = "${var.APP_NAME}-${var.SIDE[1]}-${var.APP_ENV}-alb"
-#   internal           = true
-#   load_balancer_type = "application"
-#   subnets            = aws_subnet.private.*.id
-#   security_groups    = [aws_security_group.backend-alb-sg.id]
+  # public_key = "{.pub 파일 내용}"
+  public_key = file("${var.PUBLIC_KEY_PATH}")
 
-#   tags = {
-#     Name        = "${var.APP_NAME}-${var.SIDE[1]}-alb"
-#     Environment = var.APP_ENV
-#   }
-# }
+  tags = {
+    Name        = "${var.APP_NAME}-main-key-pair"
+    Environment = var.APP_ENV
+  }
+}
 
-# resource "aws_lb_target_group" "backend-target-group" {
-#   name        = "${var.APP_NAME}-${var.APP_ENV}-tg"
-#   port        = 80
-#   protocol    = "HTTP"
-#   target_type = "ip"
-#   vpc_id      = aws_vpc.main.id
 
-#   health_check {
-#     healthy_threshold   = "3"
-#     interval            = "300"
-#     protocol            = "HTTP"
-#     matcher             = "200"
-#     timeout             = "3"
-#     path                = "var.HEALTH_CHECK_PATH"
-#     unhealthy_threshold = "2"
-#   }
+resource "aws_instance" "bastion" {
+  ami                    = var.BASTION_AMI
+  instance_type          = var.BASTION_TYPE
+  subnet_id              = element(aws_subnet.public.*.id, 0)
+  vpc_security_group_ids = [aws_security_group.bastion-sg.id]
+  key_name               = "tf_main_key"
 
-#   tags = {
-#     Name        = "${var.APP_NAME}-${var.SIDE[1]}-lb-tg"
-#     Environment = var.APP_ENV
-#   }
-# }
+  tags = {
+    Name        = "${var.APP_NAME}-bastion-host"
+    Environment = var.APP_ENV
+  }
+}
 
-# resource "aws_lb_listener" "backend-listener" {
-#   load_balancer_arn = aws_alb.backend-alb.id
-#   port              = "80"
-#   protocol          = "HTTP"
-
-#   default_action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.backend-target-group.id
-#   }
-# }

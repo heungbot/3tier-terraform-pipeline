@@ -4,8 +4,12 @@ module "heungbot-base" {
   source                 = "./heungbot-base"
   BUILD_NUMBER           = var.BUILD_NUMBER
   JENKINS_WORKSPACE_PATH = var.JENKINS_WORKSPACE_PATH
-  DB_PORT                = 3306
-  CACHE_PORT             = 11211
+  PUBLIC_KEY_PATH        = var.PUBLIC_KEY_PATH
+  BASTION_AMI            = var.BASTION_AMI
+  BASTION_TYPE           = var.BASTION_TYPE
+  ADMIN_CIDR             = var.ADMIN_CIDR
+  DB_PORT                = var.DB_PORT
+  CACHE_PORT             = var.CACHE_PORT
 }
 
 module "heungbot-ecr" {
@@ -18,7 +22,7 @@ module "heungbot-iam" {
 
 ### 2(FRONTEND and DB)
 module "heungbot-frontend" {
-  source = "./frontend-cloudfront"
+  source = "./heungbot-frontend-cloudfront"
   # depends_on               = [module.heungbot-base] # why?
   BUCKET_NAME       = var.BUCKET_NAME
   DOMAIN_NAME       = var.DOMAIN_NAME
@@ -29,7 +33,7 @@ module "heungbot-frontend" {
 
 # oac module = change bucket policy
 module "heungbot-oac" {
-  source              = "./frontend-oac"
+  source              = "./heungbot-frontend-oac"
   depends_on          = [module.heungbot-frontend]
   MAIN_BUCKET_ID      = module.heungbot-frontend.MAIN_BUCKET_ID
   MAIN_BUCKET_ARN     = module.heungbot-frontend.MAIN_BUCKET_ARN
@@ -37,7 +41,7 @@ module "heungbot-oac" {
 }
 
 module "heungbot-memcache" {
-  source                     = "./heungbot-memcache"
+  source = "./heungbot-memcache"
   # depends_on                 = [module.heungbot-base]
   DB_SUBNET_GROUP_NAME       = module.heungbot-base.CACHE_SUBNET_GROUP_NAME
   AZ_MODE                    = "cross-az"
@@ -63,7 +67,7 @@ module "heungbot-aurora" {
 
 
 module "heungbot-backend-ecs" {
-  source                    = "./backend-ecs"
+  source                    = "./heungbot-backend-ecs"
   depends_on                = [module.heungbot-base, module.heungbot-ecr, module.heungbot-iam]
   BUILD_NUMBER              = var.BUILD_NUMBER
   BACKEND_IMAGE             = var.BACKEND_IMAGE

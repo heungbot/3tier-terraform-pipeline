@@ -16,6 +16,25 @@ variable "JENKINS_WORKSPACE_PATH" {
 }
 
 
+# base module variable
+variable "ADMIN_CIDR" {
+  type    = list(any)
+  default = ["3.3.3.3/32"]
+}
+
+variable "PUBLIC_KEY_PATH" {
+  default = "/Users/bangdaeseonsaeng/.ssh/id_rsa.pub"
+}
+
+variable "BASTION_AMI" {
+  default = "ami-0f2ce0bfb34039f29"
+}
+
+variable "BASTION_TYPE" {
+  default = "t2.micro"
+}
+
+
 # frontend module variable
 variable "BUCKET_NAME" {
   type        = string
@@ -43,8 +62,9 @@ variable "SERVICE_FILE_PATH" {
   default = "/Users/bangdaeseonsaeng/Desktop/project/04_main_project/terraform_module/env/service.json"
 }
 
-# aurora module variable
 
+
+# db module variable
 variable "MASTER_USERNAME" {
   default = "admin"
 }
@@ -71,3 +91,4 @@ variable "BACKEND_CONTAINER_PORT" {
 variable "BACKEND_HOST_PORT" {
   default = 80
 }
+

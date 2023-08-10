@@ -77,4 +77,12 @@ variable "HEALTH_CHECK_PATH" {
 
 variable "DB_PORT" {}
 
+variable "ADMIN_CIDR" {}
+
 variable "CACHE_PORT" {}
+
+variable "PUBLIC_KEY_PATH" {}
+
+variable "BASTION_AMI" {}
+
+variable "BASTION_TYPE" {}
