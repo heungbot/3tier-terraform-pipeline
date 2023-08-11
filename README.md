@@ -1,4 +1,4 @@
-# 3tier-terraform-pipeline
+# 3TIER TERRAFORM PIPELINE
 
 ## [ 프로젝트 설명 ]
 
