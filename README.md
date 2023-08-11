@@ -8,7 +8,7 @@
 
 프로젝트 기간 : 2023.07 ~ 2023.08
 
-프로젝트 소개 : 3일동안 이벤트성으로 운영되는 가상의 쇼핑몰 상황을 클라이언트로 설정하여 이에 따른 요구사항을 정의하고, 상황에 맞는 AWS Service(Cloudfront, S3, ALB, ECS, ElastiCache, Aurora)를 사용하였습니다.
+프로젝트 소개 : 3일동안 이벤트성으로 운영되는 가상의 쇼핑몰 상황을 클라이언트로 설정하여k 이에 따른 요구사항을 정의하고 상황에 맞는 AWS Service(Cloudfront, S3, ALB, ECS, ElastiCache, Aurora)를 사용하였습니다.
 또한 이들을 Terraform을 이용하여 인프라를 코드로 정의하고 Jenkins Pipeline을 통해 Build부터 Deployment까지 자동화 하는 프로젝트 입니다
 
 ## [ 클라이언트 상황 ] 
@@ -31,6 +31,8 @@
 * Iac를 통해 아키텍쳐 재사용성 확보 
 
 * 하루마다 판매하는 물건의 종류가 바뀌므로, 이를 즉각 반영하는 CI/CD pipeline 구축
+
+* DB의 고가용성 확보와 퍼포먼스 개선
 
 * 이벤트 서비스의 관계자만 AWS Service 컨트롤 권한 부여
 
