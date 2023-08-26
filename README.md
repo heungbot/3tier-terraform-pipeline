@@ -109,7 +109,8 @@
 
 ### [ 05-3 Frontend Services ]
 
-<img width="1178" alt="03_frontend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/3faa34a8-509c-43da-933a-559c5478b59f">
+<img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
+
 
 #### 1. CloudFront : AWS의 CDN(Content Delivery Network) 서비스로, edge location을 통해 컨텐츠 cache 할 수 있음. 
 * 동적 컨텐츠 또한 edge location을 통해 Endpoint User와 더욱 가깝운 연결을 유지하므로 전송 성능 증가
