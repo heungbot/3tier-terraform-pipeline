@@ -53,16 +53,16 @@
 
 <img width="1179" alt="01_Base Services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2755e574-33cb-4f3e-b8ae-24e3abda7bf7">
 
-1. CloudTrail : AWS 계정 관리, 운영 등을 지원하는 Service.
+#### 1. CloudTrail : AWS 계정 관리, 운영 등을 지원하는 Service.
 * 어떤 User가 어떤 Service를 컨트롤 하고 있는지 추적 가능
 
-2. ACM : SSl/TLS 인증서 프로비저닝, 관리 및 배포를 지원하는 Service
+#### 2. ACM : SSl/TLS 인증서 프로비저닝, 관리 및 배포를 지원하는 Service
 * ACM을 통해 발급받은 인증서를 통해 CloudFront의 CNAME, Route53과 연동하여 HTTPS 통신을 가능케 함
 
-3. CloudWatch : AWS Resource, Application을 위한 모니터링 서비스. 
+#### 3. CloudWatch : AWS Resource, Application을 위한 모니터링 서비스. 
 * Cloudwatch에 수집되는 Metric과 Event를 이용하여 경보설정, auto scaling 그리고 lambda 등의 다양한 서비스와 통합 가능
 
-4. IAM : AWS에 대해 세분화된 엑세스 제어 제공.
+#### 4. IAM : AWS에 대해 세분화된 엑세스 제어 제공.
 * IAM Role을 통해 AWS Service에 특정 권한을 부여할 수 있으며, IAM User를 통해 일부 권한만 가지고 있는 User를 생성할 수 있음.
 -> Root 사용자는 모든 권한을 가지고 있기에 최대한 사용을 지양
 -> IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
