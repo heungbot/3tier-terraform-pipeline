@@ -43,11 +43,11 @@
 
 ***
 
-## [ 04 구성 아키텍처 ]
+## [ 04 전체 인프라 구성도 ]
 
 <img width="1183" alt="3tier_pipeline_arch" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/f3494ee8-e7ff-4a48-87d8-59eabc98f814">
 
-## [ 05 아키텍처 구성 ]
+## [ 05 아키텍처 세부 구성 ]
 
 ### [ 05-1 Base Services ]
 
