@@ -45,13 +45,15 @@
 
 ## [ 04 전체 인프라 구성도 - 사진 변경]
 
-<img width="1183" alt="3tier_pipeline_arch" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/f3494ee8-e7ff-4a48-87d8-59eabc98f814">
+<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
+
+***
 
 ## [ 05 아키텍처 세부 구성 ]
 
 ### [ 05-1 Base Services ]
 
-<img width="1179" alt="01_Base Services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2755e574-33cb-4f3e-b8ae-24e3abda7bf7">
+<img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
 
 #### 1. CloudTrail : AWS 계정 관리, 운영 등을 지원하는 Service.
 * 어떤 User가 어떤 Service를 컨트롤 하고 있는지 추적 가능
