@@ -123,6 +123,13 @@
 
 <img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8">
 
+#### 3. ALB : 복수의 AZ에 존재하는 서버들에게 트래픽을 분산시켜 하나의 서버에 트래픽이 몰려 부하가 발생하는 것을 방지하는 로드 밸런서. 
+* Layer 7(HTTP) 계층의 요청을 분산시킴 -> HTTP(S) 기반으로 User와 Server가 통신하기 때문에 ALB 사용.
+* CloudFront의 두 번째 Origin으로 외부와 통신 가능해야 하므로 Public Subnet에 위치
+* Security Group은 CloudFront가 속한 Managed Prefix List를 허용
+* Health Check를 통해 서버에 장애가 발생하면 비정상 서버로 간주하여 자동으로 트래픽 연결 차단, 정상 서버로 간주할 경우에만 트래픽 연결하므로 고가용성 제공 
+* Listener Rule을 통해 ECS Task에 트래픽 라우팅
+
 ### [ 05-4 Backend Services ] 
 
 ### [ 05-5 Cache Service ] 
