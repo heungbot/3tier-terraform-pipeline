@@ -73,8 +73,8 @@
 <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
 1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
-* 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
-* Virtual "Private" Cloud이기 때문에 사설 IP로 구성
+- 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
+- Virtual "Private" Cloud이기 때문에 사설 IP로 구성
 
 2. Subnet : VPC의 CIDR을 세부적으로 나눈 것으로, 서비스 마다 Subnet을 구분
 * 첫 4개와 마지막 1개 IP는 AWS가 예약해두었음.
