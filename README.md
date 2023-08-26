@@ -43,7 +43,7 @@
 
 ***
 
-## [ 04 전체 인프라 구성도 - 사진 변경]
+## [ 04 전체 인프라 구성도 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
 
@@ -134,6 +134,21 @@
 * Listener Rule을 통해 ECS Task에 트래픽 라우팅
 
 ### [ 05-4 Backend Services ] 
+
+<img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a">
+
+#### 1. ECS : 컨테이너화된 Application을 쉽게 배포, 관리, 스케일링할 수 있도록 도와주는 완전 관리형 컨테이너 오케스트레이션 서비스.
+* 외부에서의 직접적인 접속은 불가해야 하므로 Private Subnet에 위치
+* 일주일 간 매일 판매 물품이 바뀌므로 Docker 이미지를 이용한 간단한 배포를 위해 ECS 사용
+* 이벤트 판매 물품이 바뀌는 자정시간에 트래픽이 한 번에 몰리고, 나머지 시간은 낮은 트래픽이 예상되므로 Serverless Container Platform인 Fargate 선택
+* Application Auto Scaling을 통해 특정 임계치를 넘을 경우, Task의 수를 조절하여 빠르고 유연하게 스케일링
+* ECS Service의 Security Group은 ALB의 Security Group을 허용
+
+
+#### 2. ECR : Docker Image를 AWS에 저장할 수 있도록 하는 완전 관리형 컨테이너 레지스트리 서비스.
+* S3를 스토리지로 사용하여 뛰어난 가용성과 액세스 제공
+* IAM 기반 인증을 통한 액세스 제어
+
 
 ### [ 05-5 Cache Service ] 
 
