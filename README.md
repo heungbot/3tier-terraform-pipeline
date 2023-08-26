@@ -72,47 +72,47 @@
 
 <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
-1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
+#### 1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
 - 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
 - Virtual "Private" Cloud이기 때문에 사설 IP로 구성
 
-2. Subnet : VPC의 CIDR을 세부적으로 나눈 것으로, 서비스 마다 Subnet을 구분
+#### 2. Subnet : VPC의 CIDR을 세부적으로 나눈 것으로, 서비스 마다 Subnet을 구분
 * 첫 4개와 마지막 1개 IP는 AWS가 예약해두었음.
 * Public Subnet : 외부와 연결된 subnet
 * Private Subnet : 외부와 연결되지 않은 subnet
 
-3. Route Table : 트래픽 전달을 위한 라우팅의 이정표 역할.
+#### 3. Route Table : 트래픽 전달을 위한 라우팅의 이정표 역할.
 
-4. Internet Gateway : VPC 내부에 있는 Resource가 외부 인터넷과 통신을 하게 해주는 Gateway.
+#### 4. Internet Gateway : VPC 내부에 있는 Resource가 외부 인터넷과 통신을 하게 해주는 Gateway.
 * VPC에 연결하여 외부와의 통신 활성화
 * Route Table을 통해 Public Subnet과 연동
 
-5. NAT Gateway : 외부 인터넷이 연동되지 않는 Private Subnet 내에 존재하는 Resource들이 외부 인터넷과 통신할 수 있도록 하는 Gateway
+#### 5. NAT Gateway : 외부 인터넷이 연동되지 않는 Private Subnet 내에 존재하는 Resource들이 외부 인터넷과 통신할 수 있도록 하는 Gateway
 * 특정 AZ에 생성되며 Elastic IP를 사용해야 함 
 * Private Subnet -> NAT Gateway -> Internet Gateway -> Internet
 * 가용성 확보를 위한 Multi AZ에 이중화 구성 
 
-6. Bastion Host : Private Subnet에 존재하는 서비스들의 관리를 위한 Admin 서버. 
+#### 6. Bastion Host : Private Subnet에 존재하는 서비스들의 관리를 위한 Admin 서버. 
 * publib subnet에 위치
 * bastion host를 통한 작업의 양에 따라 instance 수를 늘리거나 multi az에 배치.
 * 다른 Service의 Security Group에 bastion host의 Security Group을 허용하여 Bastion host의 접속 허용
 
-7. Security Group : EC2 Instance 단위로 Inbound, Outbound 트래픽을 제어하는 보안 서비스
+#### 7. Security Group : EC2 Instance 단위로 Inbound, Outbound 트래픽을 제어하는 보안 서비스
 * 허용 규칙은 적용할 수 있으나, 거부 규칙은 지정 불가능(whitelist 방식)
 
-8. Route53 :높은 가용성, 유연성을 가지는 완전 관리형 DNS 서비스
+#### 8. Route53 :높은 가용성, 유연성을 가지는 완전 관리형 DNS 서비스
 * Routing Policy를 통해 쿼리에 대한 응답 컨트롤 가능
 
 ### [ 05-3 Frontend Services ]
 
 <img width="1178" alt="03_frontend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/3faa34a8-509c-43da-933a-559c5478b59f">
 
-1. CloudFront : AWS의 CDN(Content Delivery Network) 서비스로, edge location을 통해 컨텐츠 cache 할 수 있음. 
+#### 1. CloudFront : AWS의 CDN(Content Delivery Network) 서비스로, edge location을 통해 컨텐츠 cache 할 수 있음. 
 * 동적 컨텐츠 또한 edge location을 통해 Endpoint User와 더욱 가깝운 연결을 유지하므로 전송 성능 증가
 * AWS 백본 네트워크를 통해 컨텐츠 전송 성능 증가 
 * 정적 컨텐츠의 Origin = S3 | 동적 컨텐츠의 Origin = ALB로 설정
 
-2. S3 : image, html 파일과 같은 컨텐츠를 대규모로 저장할 수 있는 객체 스토리지.
+#### 2. S3 : image, html 파일과 같은 컨텐츠를 대규모로 저장할 수 있는 객체 스토리지.
 * 최소 3개의 AZ에 데이터가 복제되기 때문에 99.999999999%의 내구성을 가짐
 * versioning, lifecycle 구성을 통해 유동적으로 객체 관리 가능
 * 일반 User들의 bucket 접근을 막기 위해 Private Bucket으로 설정
