@@ -123,8 +123,6 @@
 
 <img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8">
 
--> terraform을 통해 생성된 cloudfront distribution만 origin bucket에 access 가능
-
 ### [ 05-4 Backend Services ] 
 
 ### [ 05-5 Cache Service ] 
