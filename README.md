@@ -150,9 +150,25 @@
 * IAM 기반 인증을 통한 액세스 제어
 
 
+
 ### [ 05-5 Cache Service ] 
+<img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077">
+
+#### ElastiCache : 분산 인 메모리 캐시를 손쉽게 생성하고 확장할 수 있는 서비스
+* DB의 부하를 줄이고 Session 정보를 저장하여 User에게 빠른 응답을 제공하기 위해 사용.
+* Redis와 Memcached 중, 비교적 복잡하지 않은 데이터 구조의 캐싱을 위해 Memcached 선택 
+* Security Group은 Bastion Host의 SG와 ECS Service SG를 허용
 
 ### [ 05-6 DB Service ] 
+<img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f">
+
+#### Aurora : AWS에서 자체적으로 개발한 DB로 Cluster 단위.
+* 이벤트 기간 동안 기존의 RDS보다 높은 퍼포먼스를 가져야 하기 때문에 Aurora 선택
+* Replica를 활용한 고가용성(최대 15개의 Read Replica) 
+* 3개의 AZ에 6개의 데이터 복사본이 유지 관리됨.
+* 자동으로 Cluster 볼륨 크기 증가 가능(최대 128TiB)
+* Master에 장애가 발생했을 경우, 자동으로 Replica 중 하나가 30초 이내로 Master로 승격되는 빠른 Failover 능력을 가짐
+* Security Group은 Bastion Host의 SG, ECS Service 그리고 Memcached의 SG를 허용
 
 ## [ 파이프 라인 ]
 
