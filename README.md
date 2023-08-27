@@ -232,14 +232,14 @@
 
 ### 1. Network
 
->
+
 #### 1-1 VPC Resource Map
 <img width="1384" alt="01_network_resource_map" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e244cbe7-cd8f-4f7d-a74e-78ae8986879d">
 
 #### 1-2 Security Groups
 <img width="946" alt="10_security_groups" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/34b69698-8d3f-438d-9c0c-0e971dbc5eaa">
 
-
+***
 
 ### 2. Frontend
 
@@ -257,6 +257,8 @@
 
 <img width="584" alt="09_alb" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/980c4397-6df5-4b63-a7e5-3d85385dad2f">
 
+***
+
 ### 3. Backend
 
 #### 3-1. ECR Repository
@@ -266,6 +268,8 @@
 #### 3-2. ECS Config
 
 <img width="1028" alt="06_ecs_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/d1c9e3a4-a38a-4b52-83e8-c0b6aa0b1661">
+
+***
 
 ### 4. ElastiCache
 
