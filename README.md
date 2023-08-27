@@ -53,21 +53,22 @@
 
 <img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
 
-* 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
 
-### 01. Init 
+크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
+
+#### 01. Init 
 
 1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인 후
 1-2. ECR Login 
 
-### 02. Frontend
+#### 02. Frontend
 
 2-1. React로 구성된 Frontend 소스 코드에 대한 TEST Script 실행
 2-2. Build 과정을 거침
 2-3. 성공적으로 Build가 되었다면, Frontend에 대한 인프라를 Terraform Module을 사용하여 배포.
 2-4. 'build' 디렉토리를 CloudFront의 첫 번째 Origin인 S3 Bucket에 AWS CLI를 사용하여 업로드
 
-### 03. Backend
+#### 03. Backend
 
 3-1. node.js로 구성된 Backend 소스 코드에 대한 TEST Script 실행 
 3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
