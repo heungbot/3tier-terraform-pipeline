@@ -53,9 +53,9 @@
 
 #### 01. Init 
 
-  1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
-  
-  1-2. ECR Login 
+1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
+
+1-2. ECR Login 
 
 #### 02. Frontend
 
