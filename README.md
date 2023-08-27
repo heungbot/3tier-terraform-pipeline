@@ -45,7 +45,7 @@
 
 ## [ 04 Jenkins Pipeline 다이어그램 ]
 
-<img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3"
+<img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
    
 
 * 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
@@ -82,7 +82,7 @@
 
 ## [ 04 기간 한정 이벤트 쇼핑몰 다이어그램 ]
 
-<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5"
+<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
    
 * Jenkins Pipeline을 통해 배포할 최종 아키텍처
 
@@ -93,7 +93,7 @@
 
 ### [ 05-1 Base Services ]
 
-<img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4"
+<img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
    
 #### 1. CloudTrail : AWS 계정 관리, 운영 등을 지원하는 Service.
 * 어떤 User가 어떤 Service를 컨트롤 하고 있는지 추적 가능
@@ -114,7 +114,7 @@
 
 ### [ 05-2 Network Services ]
 
-   <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077"
+   <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
 #### 1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
 - 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
@@ -149,7 +149,7 @@
 
 ### [ 05-3 Frontend Services ]
 
-<img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d"
+<img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
 
 
 #### 1. CloudFront : AWS의 CDN(Content Delivery Network) 서비스로, edge location을 통해 컨텐츠 cache 할 수 있음. 
@@ -164,7 +164,7 @@
 
 #### OAC(Origin Access Control) : CloudFront 배포에게만 S3 Bucket에 액세스할 수 있도록 허용하여 Origin을 보호하는 방법.
 
-<img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8"
+<img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8">
 
 #### 3. ALB : 복수의 AZ에 존재하는 서버들에게 트래픽을 분산시켜 하나의 서버에 트래픽이 몰려 부하가 발생하는 것을 방지하는 로드 밸런서. 
 * Layer 7(HTTP) 계층의 요청을 분산시킴 - HTTP(S) 기반으로 User와 Server가 통신하기 때문에 ALB 사용.
@@ -175,7 +175,7 @@
 
 ### [ 05-4 Backend Services ] 
 
-<img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a"
+<img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a">
 
 #### 1. ECS : 컨테이너화된 Application을 쉽게 배포, 관리, 스케일링할 수 있도록 도와주는 완전 관리형 컨테이너 오케스트레이션 서비스.
 * 외부에서의 직접적인 접속은 불가해야 하므로 Private Subnet에 위치
@@ -192,7 +192,7 @@
 
 
 ### [ 05-5 Cache Service ] 
-<img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077"
+<img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077">
 
 #### ElastiCache : 분산 인 메모리 캐시를 손쉽게 생성하고 확장할 수 있는 서비스
 * DB의 부하를 줄이고 Session 정보를 저장하여 User에게 빠른 응답을 제공하기 위해 사용.
@@ -200,7 +200,7 @@
 * Security Group은 Bastion Host의 SG와 ECS Service SG를 허용
 
 ### [ 05-6 DB Service ] 
-<img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f"
+<img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f">
 
 #### Aurora : AWS에서 자체적으로 개발한 DB로 Cluster 단위.
 * 이벤트 기간 동안 기존의 RDS보다 높은 퍼포먼스를 가져야 하기 때문에 Aurora 선택
@@ -212,9 +212,9 @@
 
 
 ## [ 파이프 라인 결과 ]
-<img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406"
+<img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
 
 
 ## [ Slack 알람 ]
 
-<img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d"
+<img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d">
