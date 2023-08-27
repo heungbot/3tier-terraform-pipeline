@@ -91,7 +91,7 @@
 
 ## [ 06 아키텍처 세부 구성 ]
 
-### 6-1 Base Services
+### 6-1 Base Services : CloudTrail, ACM, CloudWatch, IAM
 
 <img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
    
