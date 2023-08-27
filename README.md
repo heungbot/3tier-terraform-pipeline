@@ -51,36 +51,36 @@
 * 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
 * Terraform Plan, Apply, Build 및 TEST Stage에서 성공 여부를 Slack Plugin을 사용하여 알람을 받을 수 있도록 설정함
 
-#### 01. Init 
+### 01. Init 
 
   1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
 
   1-2. AWS CLI를 사용하여 ECR Login 
 
-#### 02. Frontend
+### 02. Frontend
 
-2-1. React로 구성된 Frontend 소스 코드에 대한 TEST Script 실행
+  2-1. React로 구성된 Frontend 소스 코드에 대한 TEST Script 실행
 
-2-2. Build 과정을 거침
+  2-2. Build 과정을 거침
 
-2-3. 성공적으로 Build가 되었다면, Frontend에 대한 인프라를 Terraform Module을 사용하여 배포.
+  2-3. 성공적으로 Build가 되었다면, Frontend에 대한 인프라를 Terraform Module을 사용하여 배포.
 
-2-4. 'build' 디렉토리를 CloudFront의 첫 번째 Origin인 S3 Bucket에 AWS CLI를 사용하여 업로드
+  2-4. 'build' 디렉토리를 CloudFront의 첫 번째 Origin인 S3 Bucket에 AWS CLI를 사용하여 업로드
 
 
-#### 03. Backend
+### 03. Backend
 
-3-1. node.js로 구성된 Backend 소스 코드에 대한 TEST Script 실행 
+  3-1. node.js로 구성된 Backend 소스 코드에 대한 TEST Script 실행 
 
-3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
+  3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
 
-3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
+  3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
 
-3-4. ECS Module을 사용하여 최종 배포 완료
+  3-4. ECS Module을 사용하여 최종 배포 완료
 
 *** 
 
-## [ 04 기간 한정 이벤트 쇼핑몰 다이어그램 ]
+## [ 04 인프라 아키텍처 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
    
