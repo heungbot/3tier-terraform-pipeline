@@ -112,6 +112,7 @@
 
 - IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
 
+***
 
 ### 6-2 Network Services
 
