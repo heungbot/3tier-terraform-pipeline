@@ -1,6 +1,6 @@
 # 3TIER TERRAFORM PIPELINE
 
-## [ ** 01 프로젝트 설명 ** ]
+## [ 01 프로젝트 설명 ]
 
 프로젝트 명 : 기간 한정 이벤트 쇼핑몰 서비스 구축
 
@@ -43,13 +43,13 @@
 
 ***
 
-## [ 04 전체 인프라 구성도 ]
+## [ 04 이벤트 기간 할인 쇼핑몰 사이트 아키텍처 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
 
 ***
 
-## [ 파이프 라인 ]
+## [ 05 파이프 라인 ]
 
 <img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
 
