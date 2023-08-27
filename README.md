@@ -232,10 +232,10 @@
 
 ### 1. Network
 
-1-1 VPC Resource Map
+   #### 1-1 VPC Resource Map
 <img width="1384" alt="01_network_resource_map" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e244cbe7-cd8f-4f7d-a74e-78ae8986879d">
 
-1-2 Security Groups
+#### 1-2 Security Groups
 <img width="946" alt="10_security_groups" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/34b69698-8d3f-438d-9c0c-0e971dbc5eaa">
 
 
