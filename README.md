@@ -45,45 +45,45 @@
 
 ## [ 04 Jenkins Pipeline 다이어그램 ]
 
-<img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
-
+<img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3"
+   
 
 * 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
 * Terraform Plan, Apply, Build 및 TEST Stage에서 성공 여부를 Slack Plugin을 사용하여 알람을 받을 수 있도록 설정함
 
 #### 01. Init 
 
-> 1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
+    1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
 
-> 1-2. AWS CLI를 사용하여 ECR Login 
+    1-2. AWS CLI를 사용하여 ECR Login 
 
 #### 02. Frontend
 
-> 2-1. React로 구성된 Frontend 소스 코드에 대한 TEST Script 실행
+    2-1. React로 구성된 Frontend 소스 코드에 대한 TEST Script 실행
 
-> 2-2. Build 과정을 거침
+    2-2. Build 과정을 거침
 
-> 2-3. 성공적으로 Build가 되었다면, Frontend에 대한 인프라를 Terraform Module을 사용하여 배포.
+    2-3. 성공적으로 Build가 되었다면, Frontend에 대한 인프라를 Terraform Module을 사용하여 배포.
 
-> 2-4. 'build' 디렉토리를 CloudFront의 첫 번째 Origin인 S3 Bucket에 AWS CLI를 사용하여 업로드
+    2-4. 'build' 디렉토리를 CloudFront의 첫 번째 Origin인 S3 Bucket에 AWS CLI를 사용하여 업로드
 
 
 #### 03. Backend
 
-> 3-1. node.js로 구성된 Backend 소스 코드에 대한 TEST Script 실행 
+    3-1. node.js로 구성된 Backend 소스 코드에 대한 TEST Script 실행 
 
-> 3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
+    3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
 
-> 3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
+    3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
 
-> 3-4. ECS Module을 사용하여 최종 배포 완료
+    3-4. ECS Module을 사용하여 최종 배포 완료
 
 *** 
 
 ## [ 04 기간 한정 이벤트 쇼핑몰 다이어그램 ]
 
-<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
-
+<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5"
+   
 * Jenkins Pipeline을 통해 배포할 최종 아키텍처
 
 ***
@@ -93,8 +93,8 @@
 
 ### [ 05-1 Base Services ]
 
-<img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
-
+<img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4"
+   
 #### 1. CloudTrail : AWS 계정 관리, 운영 등을 지원하는 Service.
 * 어떤 User가 어떤 Service를 컨트롤 하고 있는지 추적 가능
 
@@ -107,17 +107,17 @@
 #### 4. IAM : AWS에 대해 세분화된 엑세스 제어 제공.
 * IAM Role을 통해 AWS Service에 특정 권한을 부여할 수 있으며, IAM User를 통해 일부 권한만 가지고 있는 User를 생성할 수 있음.
   
--> Root 사용자는 모든 권한을 가지고 있기에 최대한 사용을 지양
+- Root 사용자는 모든 권한을 가지고 있기에 최대한 사용을 지양
 
--> IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
+- IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용    
 
 
 ### [ 05-2 Network Services ]
 
-<img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
+   <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077"
 
 #### 1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
-- 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
+- 자체 데이터 센터에서 운영하는 기존 네트워크와 유사    
 - Virtual "Private" Cloud이기 때문에 사설 IP로 구성
 
 #### 2. Subnet : VPC의 CIDR을 세부적으로 나눈 것으로, 서비스 마다 Subnet을 구분
@@ -133,13 +133,13 @@
 
 #### 5. NAT Gateway : 외부 인터넷이 연동되지 않는 Private Subnet 내에 존재하는 Resource들이 외부 인터넷과 통신할 수 있도록 하는 Gateway
 * 특정 AZ에 생성되며 Elastic IP를 사용해야 함 
-* Private Subnet -> NAT Gateway -> Internet Gateway -> Internet
+* Private Subnet - NAT Gateway - Internet Gateway - Internet
 * 가용성 확보를 위한 Multi AZ에 이중화 구성 
 
 #### 6. Bastion Host : Private Subnet에 존재하는 서비스들의 관리를 위한 Admin 서버. 
 * publib subnet에 위치
 * bastion host를 통한 작업의 양에 따라 instance 수를 늘리거나 multi az에 배치.
-* 다른 Service의 Security Group에 bastion host의 Security Group을 허용하여 Bastion host의 접속 허용
+* 다른 Service의 Security Group에 bastion host의 Security Group을 허용하여 Bastion host의 접속 허용    
 
 #### 7. Security Group : EC2 Instance 단위로 Inbound, Outbound 트래픽을 제어하는 보안 서비스
 * 허용 규칙은 적용할 수 있으나, 거부 규칙은 지정 불가능(whitelist 방식)
@@ -149,13 +149,13 @@
 
 ### [ 05-3 Frontend Services ]
 
-<img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
+<img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d"
 
 
 #### 1. CloudFront : AWS의 CDN(Content Delivery Network) 서비스로, edge location을 통해 컨텐츠 cache 할 수 있음. 
 * 동적 컨텐츠 또한 edge location을 통해 Endpoint User와 더욱 가깝운 연결을 유지하므로 전송 성능 증가
 * AWS 백본 네트워크를 통해 컨텐츠 전송 성능 증가 
-* 정적 컨텐츠의 Origin = S3 | 동적 컨텐츠의 Origin = ALB로 설정
+* 정적 컨텐츠의 Origin = S3 | 동적 컨텐츠의 Origin = ALB로 설정    
 
 #### 2. S3 : image, html 파일과 같은 컨텐츠를 대규모로 저장할 수 있는 객체 스토리지.
 * 최소 3개의 AZ에 데이터가 복제되기 때문에 99.999999999%의 내구성을 가짐
@@ -164,20 +164,20 @@
 
 #### OAC(Origin Access Control) : CloudFront 배포에게만 S3 Bucket에 액세스할 수 있도록 허용하여 Origin을 보호하는 방법.
 
-<img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8">
+<img width="910" alt="03_frontend_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/20f78ab1-5dad-4a7f-97b7-db599b8513f8"
 
 #### 3. ALB : 복수의 AZ에 존재하는 서버들에게 트래픽을 분산시켜 하나의 서버에 트래픽이 몰려 부하가 발생하는 것을 방지하는 로드 밸런서. 
-* Layer 7(HTTP) 계층의 요청을 분산시킴 -> HTTP(S) 기반으로 User와 Server가 통신하기 때문에 ALB 사용.
-* CloudFront의 두 번째 Origin으로 외부와 통신 가능해야 하므로 Public Subnet에 위치
+* Layer 7(HTTP) 계층의 요청을 분산시킴 - HTTP(S) 기반으로 User와 Server가 통신하기 때문에 ALB 사용.
+* CloudFront의 두 번째 Origin으로 외부와 통신 가능해야 하므로 Public Subnet에 위치    
 * Security Group은 CloudFront가 속한 Managed Prefix List를 허용
-* Health Check를 통해 서버에 장애가 발생하면 비정상 서버로 간주하여 자동으로 트래픽 연결 차단, 정상 서버로 간주할 경우에만 트래픽 연결하므로 고가용성 제공 
+* Health Check를 통해 서버에 장애가 발생하면 비정상 서버로 간주하여 자동으로 트래픽 연결 차단, 정상 서버로 간주할 경우에만 트래픽 연결하므로 고가용성 제공     
 * Listener Rule을 통해 ECS Task에 트래픽 라우팅
 
 ### [ 05-4 Backend Services ] 
 
-<img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a">
+<img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a"
 
-#### 1. ECS : 컨테이너화된 Application을 쉽게 배포, 관리, 스케일링할 수 있도록 도와주는 완전 관리형 컨테이너 오케스트레이션 서비스.
+#### 1. ECS : 컨테이너화된 Application을 쉽게 배포, 관리, 스케일링할 수 있도록 도와주는 완전 관리형 컨테이너 오케스트레이션 서비스.    
 * 외부에서의 직접적인 접속은 불가해야 하므로 Private Subnet에 위치
 * 일주일 간 매일 판매 물품이 바뀌므로 Docker 이미지를 이용한 간단한 배포를 위해 ECS 사용
 * 이벤트 판매 물품이 바뀌는 자정시간에 트래픽이 한 번에 몰리고, 나머지 시간은 낮은 트래픽이 예상되므로 Serverless Container Platform인 Fargate 선택
@@ -192,15 +192,15 @@
 
 
 ### [ 05-5 Cache Service ] 
-<img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077">
+<img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077"
 
-#### ElastiCache : 분산 인 메모리 캐시를 손쉽게 생성하고 확장할 수 있는 서비스
+#### ElastiCache : 분산 인 메모리 캐시를 손쉽게 생성하고 확장할 수 있는 서비스    
 * DB의 부하를 줄이고 Session 정보를 저장하여 User에게 빠른 응답을 제공하기 위해 사용.
 * Redis와 Memcached 중, 비교적 복잡하지 않은 데이터 구조의 캐싱을 위해 Memcached 선택 
 * Security Group은 Bastion Host의 SG와 ECS Service SG를 허용
 
 ### [ 05-6 DB Service ] 
-<img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f">
+<img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f"    
 
 #### Aurora : AWS에서 자체적으로 개발한 DB로 Cluster 단위.
 * 이벤트 기간 동안 기존의 RDS보다 높은 퍼포먼스를 가져야 하기 때문에 Aurora 선택
@@ -212,9 +212,9 @@
 
 
 ## [ 파이프 라인 결과 ]
-<img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
+<img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406"    
 
 
 ## [ Slack 알람 ]
 
-<img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d">
+<img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d"    
