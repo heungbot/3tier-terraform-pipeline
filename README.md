@@ -91,7 +91,8 @@
 
 ## [ 06 아키텍처 세부 구성 ]
 
-  ### 6-1 Base Services
+### 6-1 Base Services
+  
 
 <img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
    
@@ -112,9 +113,10 @@
 - IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
 
 
-### [ 06-2 Network Services ]
+### 06-2 Network Services
+  
 
-   <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
+<img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
 #### 1. VPC : 사용자가 네트워크 대역(CIDR)을 지정하여 정의하는 논리적으로 격리된 가상의 네트워크
 - 자체 데이터 센터에서 운영하는 기존 네트워크와 유사
