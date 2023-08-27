@@ -43,13 +43,7 @@
 
 ***
 
-## [ 04 이벤트 기간 할인 쇼핑몰 사이트 아키텍처 ]
-
-<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
-
-***
-
-## [ 05 파이프 라인 ]
+## [ 04 Jenkins Pipeline 다이어그램 ]
 
 <img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
 
@@ -76,7 +70,16 @@
 3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
 3-4. ECS Module을 사용하여 최종 배포 완료
 
+*** 
+
+## [ 04 기간 한정 이벤트 쇼핑몰 다이어그램 ]
+
+<img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
+
+* Jenkins Pipeline을 통해 배포할 최종 아키텍처
+
 ***
+
 
 ## [ 05 아키텍처 세부 구성 ]
 
