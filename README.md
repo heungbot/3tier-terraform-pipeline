@@ -51,7 +51,7 @@
 * 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
 * Terraform Plan, Apply, Build 및 TEST Stage에서 성공 여부를 Slack Plugin을 사용하여 알람을 받을 수 있도록 설정함
 
-#### 01. Init 
+> #### 01. Init 
 
 >> 1-1. 실행에 필요한 Docker, Terraform, Docker의 설치 여부, Daemon의 활성화 확인
 
