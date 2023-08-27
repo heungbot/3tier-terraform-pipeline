@@ -224,10 +224,59 @@
 
 ***
 
-## [ 파이프 라인 결과 ]
+## [ 07 Jenkins Pipeline 실행 결과 ]
 <img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
+
+* 모든 Stage가 정상적으로 수행되었으며, 생성된 서비스들은 AWS Console에서 확인 가능
+
+
+### 1. Network
+
+1-1 VPC Resource Map
+<img width="1384" alt="01_network_resource_map" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e244cbe7-cd8f-4f7d-a74e-78ae8986879d">
+
+1-2 Security Groups
+<img width="946" alt="10_security_groups" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/34b69698-8d3f-438d-9c0c-0e971dbc5eaa">
+
+
+
+### 2. Frontend
+
+2-1. CloudFront Config
+<img width="1160" alt="02_cloudfront_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/27c2a3a7-e1e4-46a7-9a07-3954e24e23c2">
+
+2-2. CloudFront Behavior and Origin Group
+<img width="1215" alt="03_cloudfront_behavior_and_origin" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/f7079aee-ad52-44fc-b5b9-94bb85cebc71">
+
+2-3. OAC Bucket Policy
+
+<img width="470" alt="04_origin_bucket_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/ded31ffe-4e1e-416a-84d3-78533975674b">
+
+2-4. Second Origin ALB
+
+<img width="584" alt="09_alb" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/980c4397-6df5-4b63-a7e5-3d85385dad2f">
+
+### 3. Backend
+
+3-1. ECR Repository
+
+<img width="1163" alt="05_ecr_repository" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/712c66f5-5064-4060-a1d8-a06874d4dea0">
+
+3-2. ECS Config
+
+<img width="1028" alt="06_ecs_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/d1c9e3a4-a38a-4b52-83e8-c0b6aa0b1661">
+
+### 4. ElastiCache
+
+<img width="1201" alt="07_memcached_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e38626e8-1a94-449f-8ad2-a43f77b8b218">
+
+### 5. Aurora Cluster
+<img width="940" alt="08_aurora_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/7155edf8-a140-4cd8-b19c-46b23819b063">
+
 
 
 ## [ Slack 알람 ]
 
 <img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d">
+
+* 
