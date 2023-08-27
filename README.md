@@ -80,18 +80,18 @@
 
 *** 
 
-## [ 04 인프라 아키텍처 ]
+## [ 05 인프라 아키텍처 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
    
-* Jenkins Pipeline을 통해 배포할 최종 아키텍처
+* Jenkins Pipeline을 통해 terraform으로 배포할 최종 아키텍처
 
 ***
 
 
-## [ 05 아키텍처 세부 구성 ]
+## [ 06 아키텍처 세부 구성 ]
 
-###   5-1 Base Services
+###  * 6-1 Base Services
 
 <img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
    
@@ -112,7 +112,7 @@
 - IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
 
 
-### [ 05-2 Network Services ]
+### [ 06-2 Network Services ]
 
    <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
