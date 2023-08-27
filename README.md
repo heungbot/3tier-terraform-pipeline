@@ -150,6 +150,8 @@
 #### 8. Route53 :높은 가용성, 유연성을 가지는 완전 관리형 DNS 서비스
 * Routing Policy를 통해 쿼리에 대한 응답 컨트롤 가능
 
+***
+
 ### 6-3 Frontend Services
 
 <img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
@@ -176,6 +178,8 @@
 * Health Check를 통해 서버에 장애가 발생하면 비정상 서버로 간주하여 자동으로 트래픽 연결 차단, 정상 서버로 간주할 경우에만 트래픽 연결하므로 고가용성 제공 
 * Listener Rule을 통해 ECS Task에 트래픽 라우팅
 
+***
+
 ### 6-4 Backend Services
 
 
@@ -193,7 +197,7 @@
 * S3를 스토리지로 사용하여 뛰어난 가용성과 액세스 제공
 * IAM 기반 인증을 통한 액세스 제어
 
-
+***
 
 ### 6-5 Cache Service
 
@@ -218,6 +222,7 @@
 * Master에 장애가 발생했을 경우, 자동으로 Replica 중 하나가 30초 이내로 Master로 승격되는 빠른 Failover 능력을 가짐
 * Security Group은 Bastion Host의 SG, ECS Service 그리고 Memcached의 SG를 허용
 
+***
 
 ## [ 파이프 라인 결과 ]
 <img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
