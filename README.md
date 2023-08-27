@@ -278,10 +278,12 @@
 ### 5. Aurora Cluster
 <img width="940" alt="08_aurora_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/7155edf8-a140-4cd8-b19c-46b23819b063">
 
+* 모든 terraform module이 정상적으로 배포되었음
+
 
 
 ## [ Slack 알람 ]
 
 <img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d">
 
-* 
+* 중요 stage에 대한 알람이 정상적으로 slack channel에 전송되었음
