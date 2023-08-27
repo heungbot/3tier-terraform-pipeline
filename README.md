@@ -54,7 +54,8 @@
 <img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
 
 
-크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
+* 크게 Init, Frontend 그리고 Backend로 나누어 각각의 세부 stage를 정의함.
+* Terraform Plan, Apply, Build 및 TEST Stage에서 성공 여부를 Slack Plugin을 사용하여 알람을 받을 수 있도록 설정함
 
 #### 01. Init 
 
@@ -74,9 +75,6 @@
 3-2. test script가 성공적으로 실행 됐다면, Cache와 DB의 Endpoint를 얻기 위해 Terraform Modudle 배포.
 3-3. docker를 사용하여 Image Build 후, AWS CLI를 이용하여 ECR에 업로드
 3-4. ECS Module을 사용하여 최종 배포 완료
-
-
-* Terraform Plan, Apply, Build 및 TEST Stage에서 성공 여부를 Slack Plugin을 사용하여 알람을 받을 수 있도록 설정함
 
 ***
 
