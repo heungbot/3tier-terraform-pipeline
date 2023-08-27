@@ -92,7 +92,7 @@
 ## [ 06 아키텍처 세부 구성 ]
 
 ### 6-1 Base Services
-  
+
 
 <img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
    
@@ -113,8 +113,8 @@
 - IAM을 사용하여 user 및 system에 대해 최소한의 권한을 적용
 
 
-### 06-2 Network Services
-  
+### 6-2 Network Services
+
 
 <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
 
@@ -149,7 +149,7 @@
 #### 8. Route53 :높은 가용성, 유연성을 가지는 완전 관리형 DNS 서비스
 * Routing Policy를 통해 쿼리에 대한 응답 컨트롤 가능
 
-### [ 05-3 Frontend Services ]
+### 6-3 Frontend Services
 
 <img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
 
@@ -175,7 +175,8 @@
 * Health Check를 통해 서버에 장애가 발생하면 비정상 서버로 간주하여 자동으로 트래픽 연결 차단, 정상 서버로 간주할 경우에만 트래픽 연결하므로 고가용성 제공 
 * Listener Rule을 통해 ECS Task에 트래픽 라우팅
 
-### [ 05-4 Backend Services ] 
+### 6-4 Backend Services
+
 
 <img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a">
 
@@ -193,7 +194,9 @@
 
 
 
-### [ 05-5 Cache Service ] 
+### 6-5 Cache Service
+
+
 <img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077">
 
 #### ElastiCache : 분산 인 메모리 캐시를 손쉽게 생성하고 확장할 수 있는 서비스
@@ -201,7 +204,9 @@
 * Redis와 Memcached 중, 비교적 복잡하지 않은 데이터 구조의 캐싱을 위해 Memcached 선택 
 * Security Group은 Bastion Host의 SG와 ECS Service SG를 허용
 
-### [ 05-6 DB Service ] 
+### 6-5 DB Service
+
+
 <img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f">
 
 #### Aurora : AWS에서 자체적으로 개발한 DB로 Cluster 단위.
