@@ -242,27 +242,27 @@
 
 ### 2. Frontend
 
-2-1. CloudFront Config
+#### 2-1. CloudFront Config
 <img width="1160" alt="02_cloudfront_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/27c2a3a7-e1e4-46a7-9a07-3954e24e23c2">
 
-2-2. CloudFront Behavior and Origin Group
+#### 2-2. CloudFront Behavior and Origin Group
 <img width="1215" alt="03_cloudfront_behavior_and_origin" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/f7079aee-ad52-44fc-b5b9-94bb85cebc71">
 
-2-3. OAC Bucket Policy
+#### 2-3. OAC Bucket Policy
 
 <img width="470" alt="04_origin_bucket_oac" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/ded31ffe-4e1e-416a-84d3-78533975674b">
 
-2-4. Second Origin ALB
+#### 2-4. Second Origin ALB
 
 <img width="584" alt="09_alb" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/980c4397-6df5-4b63-a7e5-3d85385dad2f">
 
 ### 3. Backend
 
-3-1. ECR Repository
+#### 3-1. ECR Repository
 
 <img width="1163" alt="05_ecr_repository" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/712c66f5-5064-4060-a1d8-a06874d4dea0">
 
-3-2. ECS Config
+#### 3-2. ECS Config
 
 <img width="1028" alt="06_ecs_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/d1c9e3a4-a38a-4b52-83e8-c0b6aa0b1661">
 
