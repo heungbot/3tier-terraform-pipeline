@@ -80,7 +80,7 @@
 
 *** 
 
-## [ 05 인프라 아키텍처 ]
+## [ 05 서비스 아키텍처 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
    
