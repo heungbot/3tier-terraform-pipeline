@@ -1,6 +1,6 @@
 # 3TIER TERRAFORM PIPELINE
 
-## [ 01 프로젝트 설명 ]
+## 📄 프로젝트 설명
 
 프로젝트 명 : 기간 한정 이벤트 쇼핑몰 서비스 구축
 
@@ -11,9 +11,9 @@
 프로젝트 소개 : 3일동안 이벤트성으로 운영되는 가상의 쇼핑몰 상황을 클라이언트로 설정하여 이에 따른 요구사항을 정의하고 상황에 맞는 AWS Service(Cloudfront, S3, ALB, ECS, ElastiCache, Aurora)를 사용하였습니다.
 또한 이들을 Terraform을 이용하여 저만의 모듈을 만들어 인프라를 코드로 정의하고 Jenkins Pipeline을 통해 Build부터 Deployment까지 자동화 하는 프로젝트 입니다
 
-* * *
+***
 
-## [ 02 클라이언트 상황 ] 
+## [ 01 클라이언트 상황 가정 ] 
 
 * 이벤트 기간 동안 하루에 약 20,000명의 유저가 몰릴 것이라 예상 
 
@@ -25,7 +25,7 @@
 
 ***
 
-## [ 03 클라이언트 요구사항 ]
+## [ 02 요구사항 정의 ]
 
 * 물리서버를 이용하지 않고, 모든 서비스를 클라우드 환경에 배포
 
@@ -43,7 +43,7 @@
 
 ***
 
-## [ 04 Jenkins Pipeline 다이어그램 ]
+## [ 03 Jenkins Pipeline 다이어그램 ]
 
 <img width="1087" alt="3tier_pipeline_flow" src="https://github.com/heungbot/3tier-terraform-pipeline/assets/97264115/8e0c0018-1676-4b25-aa9c-c1d2bf0260c3">
    
@@ -80,7 +80,7 @@
 
 *** 
 
-## [ 05 서비스 아키텍처 ]
+## [ 04 서비스 다이어그램 ]
 
 <img width="1173" alt="00_final_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/717f0f1a-2ef1-486a-8bb8-f7955ac8a7b5">
    
@@ -89,9 +89,9 @@
 ***
 
 
-## [ 06 아키텍처 세부 구성 ]
+## [ 05 아키텍처 세부 구성 소개 ]
 
-### 6-1 Base Services
+### 5-1 Base Services
 
 
 <img width="1180" alt="01_base_architecture_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/77ea2c96-bff1-467d-a956-ce524c14fbd4">
@@ -114,7 +114,7 @@
 
 ***
 
-### 6-2 Network Services
+### 5-2 Network Services
 
 
 <img width="949" alt="02_network_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/e603fb1c-d2b7-49f3-b6e3-450060623077">
@@ -152,7 +152,7 @@
 
 ***
 
-### 6-3 Frontend Services
+### 5-3 Frontend Services
 
 <img width="1182" alt="03_Frontend_services_real" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bd89fb86-7c2d-4f08-a891-d4d30bfd814d">
 
@@ -180,7 +180,7 @@
 
 ***
 
-### 6-4 Backend Services
+### 5-4 Backend Services
 
 
 <img width="1175" alt="04_backend_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/2ad1e08e-6385-4b34-be92-dd5b1467dc6a">
@@ -199,7 +199,7 @@
 
 ***
 
-### 6-5 Cache Service
+### 5-5 Cache Service
 
 
 <img width="1175" alt="05_cache_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/487dc92f-b044-4a76-9ed8-19b897c4d077">
@@ -209,7 +209,7 @@
 * Redis와 Memcached 중, 비교적 복잡하지 않은 데이터 구조의 캐싱을 위해 Memcached 선택 
 * Security Group은 Bastion Host의 SG와 ECS Service SG를 허용
 
-### 6-5 DB Service
+### 5-5 DB Service
 
 
 <img width="1181" alt="06_db_services" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/398c1a39-00a6-4fe3-8f1b-fd204a20086f">
@@ -224,7 +224,7 @@
 
 ***
 
-## [ 07 Jenkins Pipeline 실행 결과 ]
+## [ 06 Jenkins Pipeline 실행 결과 ]
 <img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
 
 * 모든 Stage가 정상적으로 수행되었으며, 생성된 서비스들은 AWS Console에서 확인 가능
