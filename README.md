@@ -13,6 +13,22 @@
 
 ***
 
+## 📃 목차
+
+[01. 클라이언트 상황 가정 ](#-01-클라이언트-상황-가정-)
+
+[02. 요구사항 정의 ](#-02-요구사항-정의-)
+
+[03. Jenkins Pipeline 다이어그램 ](#-03jenkins-pipeline-다이어그램-)
+
+[04. 서비스 다이어그램 ](#-03-서비스-다이어그램-)
+
+[05. 아키텍처 세부 구성 소개 ](#-05-핵심-서비스-소개-)
+
+[06. Jenkins Pipeline 실행 및 구현 ](#-06-jenkins-pipeline-실행-및-구현-)
+
+***
+
 ## [ 01 클라이언트 상황 가정 ] 
 
 * 이벤트 기간 동안 하루에 약 20,000명의 유저가 몰릴 것이라 예상 
@@ -224,7 +240,7 @@
 
 ***
 
-## [ 06 Jenkins Pipeline 실행 결과 ]
+## [ 06 Jenkins Pipeline 실행 및 구현 ]
 <img width="1205" alt="3tier_pipeline_result" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/bea3062a-9ac0-4c93-bc22-dbf29c80b406">
 
 * 모든 Stage가 정상적으로 수행되었으며, 생성된 서비스들은 AWS Console에서 확인 가능
@@ -279,10 +295,6 @@
 <img width="940" alt="08_aurora_config" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/7155edf8-a140-4cd8-b19c-46b23819b063">
 
 * 모든 terraform module이 정상적으로 배포되었음
-
-
-
-## [ Slack 알람 ]
 
 <img width="948" alt="스크린샷 2023-08-11 오후 12 27 48" src="https://github.com/heungbot/Event_Shopping_Mall_Pipeline/assets/97264115/57d85f0c-c2f2-48df-a927-52a035acf95d">
 
