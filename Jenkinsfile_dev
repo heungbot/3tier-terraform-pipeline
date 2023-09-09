@@ -229,11 +229,7 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}/terraform_module") {
                     sh """
-                    terraform init
-                    terraform plan --target=module.heungbot-backend-ecs \
-                    -var "BUILD_NUMBER=${env.BUILD_NUMBER}" \
-                    -var "BACKEND_IMAGE=${env.ECR_REPOSITORY_URL}:${BACKEND_IMAGE_NAME}_${env.BUILD_NUMBER}" \
-                    -var "JENKINS_WORKSPACE_PATH=${env.WORKSPACE}"
+                        sleep 12;
                     """
                 }
             }
