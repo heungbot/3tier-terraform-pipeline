@@ -175,7 +175,7 @@ pipeline {
         stage('BACKEND IMAGE BUILD') {
             steps {
                 dir("${env.WORKSPACE}/backend") {
-                    sh "docker build -t ${BACKEND_IMAGE_NAME}:${BUILD_NUMBER} ."
+                    sh "sleep 284;"
                 }
             }
             post {
@@ -209,9 +209,7 @@ pipeline {
                 echo 'Tag and push the backend image to ECR'
                 dir("${env.WORKSPACE}/backend") {
                     sh"""
-                    docker tag ${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER} ${env.ECR_REPOSITORY_URL}:${BACKEND_IMAGE_NAME}_${env.BUILD_NUMBER} &&
-                    docker push ${env.ECR_REPOSITORY_URL}:${BACKEND_IMAGE_NAME}_${env.BUILD_NUMBER} &&
-                    docker rmi ${env.ECR_REPOSITORY_URL}:${BACKEND_IMAGE_NAME}_${env.BUILD_NUMBER}
+                        sleep 4;
                     """
                 }
             }
@@ -264,7 +262,7 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}/terraform_module") {
                     sh """
-                    sleep 268;
+                    sleep 298;
                     """
                 }
             }
